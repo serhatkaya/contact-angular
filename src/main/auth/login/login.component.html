@@ -1,0 +1,67 @@
+<head>
+  <link
+    rel="canonical"
+    href="https://getbootstrap.com/docs/4.0/examples/floating-labels/"
+  />
+</head>
+<body>
+  <form class="form-validate" [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="text-center mb-4">
+      <h1>
+        <span class="text-info">
+          <i class="fa fa-address-book fa-4x"></i> Login</span
+        >
+      </h1>
+    </div>
+
+    <div class="form-label-group">
+      <input
+        formControlName="username"
+        type="email"
+        id="inputEmail"
+        class="form-control"
+        [class.error]="f.username.touched && f.username.errors"
+        placeholder="Email address"
+        required
+        autofocus
+      />
+    </div>
+    <span
+      *ngIf="
+        f.username.touched && f.username.errors && f.username.errors.required
+      "
+    >
+      Username is required
+    </span>
+    <div class="form-label-group">
+      <input
+        formControlName="password"
+        type="password"
+        id="inputPassword"
+        class="form-control"
+        [class.error]="f.password.touched && f.password.errors"
+        placeholder="Password"
+        required
+      />
+    </div>
+    <span
+      *ngIf="
+        f.password.touched && f.password.errors && f.password.errors.required
+      "
+    >
+      Password is required
+    </span>
+    <div class="row" *ngIf="errorMsg != ''">
+      <span class="alert alert-danger">{{ errorMsg }}</span>
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-lg btn-primary btn-block">
+        Sign in
+      </button>
+    </div>
+
+    <p class="mt-5 mb-3 text-muted text-center">
+      &copy; {{ year }} - Serhat KAYA
+    </p>
+  </form>
+</body>

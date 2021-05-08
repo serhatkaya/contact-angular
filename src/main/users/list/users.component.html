@@ -1,0 +1,7 @@
+<ngx-table
+  *ngIf="users$ | async as data"
+  [configuration]="configuration"
+  [data]="data.result"
+  [columns]="columns"
+>
+</ngx-table>
